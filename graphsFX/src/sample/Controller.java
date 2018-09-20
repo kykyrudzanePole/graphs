@@ -35,7 +35,7 @@ public class Controller {
 
 
     @FXML
-    private AnchorPane circlePane;
+    private Button clear;
 
     @FXML
     private Button findRadius;
@@ -50,7 +50,7 @@ public class Controller {
     private Pane pane;
 
     @FXML
-    private Button findAddress;
+    private Button findAdress;
 
     @FXML
     private TextField fileAdress;
@@ -73,7 +73,7 @@ public class Controller {
             }
         });
 
-        findAddress.setOnAction(new EventHandler<ActionEvent>() {
+        findAdress.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 Window stage = null;
@@ -83,6 +83,18 @@ public class Controller {
                 String path = file.toString();
                 System.out.println(path);
                 fileAdress.setText(path);
+            }
+        });
+
+        clear.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                fileAdress.setText(" ");
+                file = null;
+                start_radius = 0;
+                pane.getChildren().clear();
+                radius.setText(" ");
+                arrayList.clear();
             }
         });
 
@@ -176,7 +188,6 @@ public class Controller {
             }
         }catch (IndexOutOfBoundsException error){
             System.out.println("empty collection");
-
         }
     }
 
@@ -196,6 +207,9 @@ public class Controller {
         boolean boolFlag = true;
 
         for(int i = 0; i < integerArrayList.size() - 1; i++) {
+            if(integerArrayList.size() == 2){
+                break;
+            }
             if(start_radius > arrayList.get(integerArrayList.get(i)).points_length[integerArrayList.get(i + 1)] / 2) {
                 System.out.println("work check 1");
                 if(arrayList.get(integerArrayList.get(i)).points_length[integerArrayList.get(i + 1)] >= point.points_length[integerArrayList.get(i)]) {
