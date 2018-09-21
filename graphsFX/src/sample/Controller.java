@@ -3,7 +3,10 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -12,7 +15,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.stage.Window;
+import sample.dialogRandom.DialogRandomController;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -56,6 +61,9 @@ public class Controller {
     private TextField fileAdress;
 
     @FXML
+    private Button randomButton;
+
+    @FXML
     void initialize(){
         show.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -86,6 +94,22 @@ public class Controller {
             }
         });
 
+        randomButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try{
+                    Parent root = FXMLLoader.load(getClass().getResource("/sample/dialogRandom/dialogRandom.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("Random Points");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+                fileAdress.setText("/Users/Couple/Documents/GitHub/graphs/graphsFX/RandomFile.txt");
+            }
+        });
+
         clear.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -112,7 +136,7 @@ public class Controller {
         });
     }
 
-        public void handleFile() throws IOException{
+    public void handleFile() throws IOException{
             BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(fileAdress.getText())));
 
             String data = bufferedReader.readLine();
@@ -146,6 +170,8 @@ public class Controller {
                     }
                 }
             }
+
+            bufferedReader.close();
 
             for(int i = 0; i < arrayList.size(); i++){
                 lengthCounter(arrayList.get(i));

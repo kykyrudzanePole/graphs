@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="195.0" prefWidth="566.0" style="-fx-background-color: DarkSeaGreen; -fx-border-width: 5px; -fx-border-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.dialogRandom.DialogRandomController">
+   <children>
+      <Text layoutX="31.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Number of Points :   ">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="31.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max Number :   ">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="33.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min Number :   ">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="pointsNumber" layoutX="256.0" layoutY="25.0" prefHeight="27.0" prefWidth="280.0" promptText="Write number of points :" />
+      <TextField fx:id="minRandomNumber" layoutX="256.0" layoutY="68.0" prefHeight="27.0" prefWidth="280.0" promptText="Write Min Number :" />
+      <TextField fx:id="maxRandomNumber" layoutX="256.0" layoutY="107.0" prefHeight="27.0" prefWidth="280.0" promptText="Write Max Number :" />
+      <Button fx:id="okButton" defaultButton="true" layoutX="210.0" layoutY="145.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="147.0" text="OK" textAlignment="CENTER">
+         <font>
+            <Font name="Impact" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
