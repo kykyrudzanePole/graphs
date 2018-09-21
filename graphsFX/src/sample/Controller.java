@@ -35,7 +35,7 @@ public class Controller {
 
 
     @FXML
-    private AnchorPane circlePane;
+    private Button clear;
 
     @FXML
     private Button findRadius;
@@ -50,7 +50,7 @@ public class Controller {
     private Pane pane;
 
     @FXML
-    private Button findAddress;
+    private Button findAdress;
 
     @FXML
     private TextField fileAdress;
@@ -73,7 +73,7 @@ public class Controller {
             }
         });
 
-        findAddress.setOnAction(new EventHandler<ActionEvent>() {
+        findAdress.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 Window stage = null;
@@ -83,6 +83,18 @@ public class Controller {
                 String path = file.toString();
                 System.out.println(path);
                 fileAdress.setText(path);
+            }
+        });
+
+        clear.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                fileAdress.setText(" ");
+                file = null;
+                start_radius = 0;
+                pane.getChildren().clear();
+                radius.setText(" ");
+                arrayList.clear();
             }
         });
 
@@ -176,7 +188,6 @@ public class Controller {
             }
         }catch (IndexOutOfBoundsException error){
             System.out.println("empty collection");
-
         }
     }
 
@@ -188,6 +199,7 @@ public class Controller {
         if(integerArrayList.isEmpty()){
             System.out.println("empty in second circle");
         }
+
         System.out.print("in checkCrossing method " );
         for(int i = 0; i < integerArrayList.size(); i++){
             System.out.print(integerArrayList.get(i) + " ");
@@ -218,14 +230,20 @@ public class Controller {
             }
         }
         if(boolFlag){
+            point.checkFrequency = false;
             for(int i = 0; i < integerArrayList.size() - 1; i++){
                 if(!arrayList.get(integerArrayList.get(i)).checkFrequency) {
-                    start_radius -= (start_radius - point.points_length[i]);
-                }else{
-                    if(point.frequency == "black"){
+                    double temp = start_radius - point.points_length[integerArrayList.get(i)] / 2;
+                    start_radius -= temp;
+                }else {
+                    if (point.frequency == "black") {
                         arrayList.get(integerArrayList.get(i)).frequency = "white";
-                    }else{
+                        arrayList.get(integerArrayList.get(i)).checkFrequency = false;
+                        System.out.println(arrayList.get(integerArrayList.get(i)).frequency + " " + integerArrayList.get(i));
+                    } else {
                         arrayList.get(integerArrayList.get(i)).frequency = "black";
+                        arrayList.get(integerArrayList.get(i)).checkFrequency = false;
+                        System.out.println(arrayList.get(integerArrayList.get(i)).frequency + " " + integerArrayList.get(i));
                     }
                 }
             }

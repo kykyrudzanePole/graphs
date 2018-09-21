@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -28,28 +30,38 @@
                         <Font name="Futura Condensed ExtraBold" size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="fileAdress" layoutX="22.0" layoutY="162.0" promptText="File adress:" />
-                  <Button fx:id="findRadius" defaultButton="true" layoutX="29.0" layoutY="252.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="149.0" text="Find Radius" textAlignment="CENTER">
+                  <TextField fx:id="fileAdress" layoutX="27.0" layoutY="158.0" prefHeight="29.0" prefWidth="147.0" promptText="File adress:" />
+                  <Button fx:id="findRadius" defaultButton="true" layoutX="27.0" layoutY="200.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="147.0" text="Find Radius" textAlignment="CENTER">
                      <font>
                         <Font name="Impact" size="18.0" />
                      </font>
                   </Button>
-                  <Text layoutX="28.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius :" wrappingWidth="70.21875286102295">
+                  <Text layoutX="27.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius :" wrappingWidth="70.21875286102295">
                      <font>
                         <Font name="Futura Condensed ExtraBold" size="18.0" />
                      </font>
                   </Text>
-                  <Button fx:id="show" defaultButton="true" layoutX="31.0" layoutY="368.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="149.0" text="Show Frequencys" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="show" defaultButton="true" layoutX="29.0" layoutY="289.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="147.0" text="Show Frequencys" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="Impact" size="18.0" />
                      </font>
                   </Button>
-                  <Text fx:id="radius" layoutX="93.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="70.21875286102295">
+                  <Text fx:id="radius" layoutX="93.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="70.21875286102295">
                      <font>
                         <Font name="Futura Condensed ExtraBold" size="18.0" />
                      </font>
                   </Text>
-                  <Button fx:id="findAddress" defaultButton="true" layoutX="23.0" layoutY="108.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="149.0" text="Find Address" textAlignment="CENTER">
+                  <Button fx:id="findAdress" defaultButton="true" layoutX="27.0" layoutY="108.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="147.0" text="Find Address" textAlignment="CENTER">
+                     <font>
+                        <Font name="Impact" size="18.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="217.0" fitWidth="118.0" layoutX="47.0" layoutY="469.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Image/42163169_2089304384717993_4976939318703554560_n.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="clear" defaultButton="true" layoutX="31.0" layoutY="376.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="147.0" text="Clear" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="Impact" size="18.0" />
                      </font>
