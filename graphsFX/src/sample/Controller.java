@@ -4,12 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -17,7 +15,6 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import sample.dialogRandom.DialogRandomController;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -30,13 +27,13 @@ import java.util.regex.Pattern;
 
 public class Controller {
 
-    File file;
+    private File file;
 
-    public static double start_radius = 0;
-    public static ArrayList<Point> arrayList = new ArrayList<>();
-    public static double pointX;
-    public static double pointY;
-    public static DecimalFormat decimalFormat = new DecimalFormat("#.#");
+    private static double start_radius = 0;
+    private static ArrayList<Point> arrayList = new ArrayList<>();
+    private static double pointX;
+    private static double pointY;
+    private static DecimalFormat decimalFormat = new DecimalFormat("#.#");
 
 
     @FXML

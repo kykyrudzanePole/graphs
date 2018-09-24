@@ -37,7 +37,7 @@ public class DialogRandomController{
                 try {
                     System.out.println("Start Random Class");
                     BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File("/Users/Couple/Documents/GitHub/graphs/graphsFX/RandomFile.txt")));
-                    DecimalFormat decimalFormat = new DecimalFormat("#.#");
+                    DecimalFormat decimalFormat = new DecimalFormat("#");
 
                     int pointCount = Integer.parseInt(pointsNumber.getText());
                     pointCount *= 2;
@@ -48,13 +48,14 @@ public class DialogRandomController{
 
                     for(int i = 0; i < pointCount; i++){
                         arrayList.add(ThreadLocalRandom.current().nextDouble(minRandomValue, maxRandomValue));
-                        System.out.print(arrayList.get(i) + " ");
+                        System.out.print(decimalFormat.format(arrayList.get(i)) + " ");
                     }
                     System.out.println();
 
-                    for(int i = 0; i < arrayList.size() / 2; i++){
-                        bufferedWriter.write("A" + i +"(" + decimalFormat.format(arrayList.get(i)) +
+                    for(int i = 0; i < arrayList.size(); i++){
+                        bufferedWriter.write("Point : " + "(" + decimalFormat.format(arrayList.get(i)) +
                                 ", " + decimalFormat.format(arrayList.get(i + 1)) + "), ");
+                        i++;
                     }
 
                     bufferedWriter.flush();
